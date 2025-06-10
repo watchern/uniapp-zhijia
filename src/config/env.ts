@@ -1,21 +1,31 @@
+import path from 'node:path';
+
 const apiEnv: ApiEnv = 'dev';
+const BASE_URL=''
+// const { BASE_URL, ...meta_env} = import.meta.env
+// console.log('import.meta.env', BASE_URL, meta_env)
+
+console.log(path)
+
+
+const httpProtocol = BASE_URL ? 'http' : 'https'
 
 const envMap = {
   dev: {
-    baseUrl: 'https://zhijia-admin.vimhe.com/admins',
-    apiBaseUrl: 'https://zhijia-admin.vimhe.com/admins'
+    baseUrl: httpProtocol + '://m.dev.xxx.com/admins',
+    apiBaseUrl: httpProtocol + '://m.dev.api.xxx.com/admins'
   },
   beta: {
-    baseUrl: 'http://m.beta.xxx.com',
-    apiBaseUrl: 'https://m.betaapi.xxx.com'
+    baseUrl: httpProtocol + '://m.beta.xxx.com',
+    apiBaseUrl: httpProtocol + '://m.beta.api.xxx.com'
   },
   prod: {
-    baseUrl: 'https://m.xxx.com',
-    apiBaseUrl: 'https://zhijia-admin.vimhe.com/admins'
+    baseUrl: httpProtocol + '://m.xxx.com',
+    apiBaseUrl: httpProtocol + '://zhijia-admin.vimhe.com/admins'
   },
   local: {
-    baseUrl: 'http://m.dev.xxx.com',
-    apiBaseUrl: 'https://m.devapi.xxx.com'
+    baseUrl: httpProtocol + '://m.dev.xxx.com',
+    apiBaseUrl: httpProtocol + '://m.dev.api.xxx.com'
   }
 };
 
@@ -25,7 +35,7 @@ type Env<T extends ApiEnv> = {
 } & (typeof envMap)[T];
 
 function createEnv(apiEnv: ApiEnv): Env<typeof apiEnv> {
-  return Object.assign({ apiEnv }, envMap[apiEnv]);
+  return Object.assign({apiEnv}, envMap[apiEnv]);
 }
 
 const env = createEnv(apiEnv);

@@ -1,13 +1,14 @@
 <script setup>
+
+import { routeBack } from "@/utils/router";
+
 defineProps({
   color: {
     type: String,
     default: '#fff'
   }
 });
-function goBack() {
-  uni.navigateBack();
-}
+
 </script>
 
 <template>
@@ -15,7 +16,7 @@ function goBack() {
     i-material-symbols-arrow-back-ios-new
     :style="{color: color}"
     pl-20px
-    @tap="goBack()"
+    @tap="routeBack()"
   ></div>
 </template>
 

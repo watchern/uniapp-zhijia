@@ -43,8 +43,17 @@ export function forward(name: string, query: Types.Query = {}): any {
   uni.redirectTo(params);
 }
 
-export function back(delta: number) {
-  uni.navigateBack({
-    delta
-  });
+
+export function routeBack(delta: number=1) {
+  let canNavBack = getCurrentPages();
+  console.log('canNavBack',canNavBack,canNavBack.length)
+  if(canNavBack && canNavBack.length>1) {
+    console.log('uni.navigateBack')
+    uni.navigateBack({
+      delta
+    });
+  } else {
+    // 直达首页
+    uni.switchTab({ url: "/" });
+  }
 }

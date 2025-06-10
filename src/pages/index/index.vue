@@ -77,6 +77,7 @@ function scanIt() {
 }
 
 function goAdd() {
+  zoomedOut.value = false;
   uni.navigateTo({ url: '/pages/addDoorLock/addDoorLock' });
 }
 
@@ -315,13 +316,13 @@ onMounted(() => {
                 <image
                   w26px
                   h26px
-                  src="@/static/images/icon_zhankai@2x.png"
+                  src="@/static/images/icon_menu@2x.png"
                   @tap="toggleZoom"
                 />
                 <image
                   w26px
                   h26px
-                  src="@/static/images/icon_saoma@2x.png"
+                  src="@/static/images/icon_scan@2x.png"
                   @tap="scanIt"
                 />
               </div>
@@ -347,31 +348,31 @@ onMounted(() => {
                     mr-10px
                     w-24px
                     h-12px
-                    src="@/static/images/icon_dianliangman@2x.png"
+                    src="@/static/images/icon_batteryFull@2x.png"
                   />
                   <div text="#333">100%</div>
                 </div>
               </div>
               <div h="33.33%" pt-15px pl-10px class="lock-border-b">
-                <div>电池</div>
+                <div>信号</div>
                 <div flex items-center mt-10px>
                   <image
                     mr-10px
                     w-24px
                     h-12px
-                    src="@/static/images/icon_xinhaoman@2x.png"
+                    src="@/static/images/icon_singleFull@2x.png"
                   />
                   <div text="#333">100%</div>
                 </div>
               </div>
               <div h="33.33%" pt-15px pl-10px>
-                <div>电池</div>
+                <div>蓝牙</div>
                 <div flex items-center mt-10px>
                   <image
                     mr-10px
                     w-20px
                     h-20px
-                    src="@/static/images/icon_lianjie@2x.png"
+                    src="@/static/images/icon_linkActive@2x.png"
                   />
                   <div text="#333">已连接</div>
                 </div>

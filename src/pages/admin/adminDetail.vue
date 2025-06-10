@@ -1,5 +1,6 @@
 <script setup>
 import { apiGetInfo, apiDoorUserCtrlUpdateUser } from "@/api";
+import { routeBack } from "@/utils/router";
 const { userInfo, setUserInfo } = useStore("root");
 const result = ref("");
 
@@ -45,7 +46,7 @@ const submit = () => {
                 title: "保存成功",
                 icon: "success",
               });
-              uni.navigateBack({ delta: 1 })
+              routeBack()
             })
             .catch((err) => {
               console.log(`err====`, err);

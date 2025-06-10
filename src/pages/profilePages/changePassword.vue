@@ -1,6 +1,7 @@
 <script setup>
 import { apiSendCodeOld, apiRestPws } from "@/api";
 import { getAppSystemInfo } from "@/hooks";
+import { routeBack } from "@/utils/router";
 const { userInfo } = useStore("root");
 const { topHeight } = getAppSystemInfo();
 
@@ -63,7 +64,7 @@ async function SubmitModifications() {
           title: "修改成功",
           icon: "none",
         });
-        uni.navigateBack({ delta: 1 });
+        routeBack()
       })
       .catch((err) => {
         console.log(`err====`, err);

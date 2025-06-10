@@ -1,12 +1,9 @@
 <script setup>
 import { apiDoorCtrlOpenDoor } from "@/api";
+import { routeBack } from "@/utils/router";
 const { lockInfo } = useStore("root");
 const unlockingStatus = ref(false);
-function goBack() {
-  uni.navigateBack({
-    delta: 1,
-  });
-}
+
 function unlocking() {
   if (!unlockingStatus.value) {
     apiDoorCtrlOpenDoor({
@@ -31,12 +28,12 @@ function unlocking() {
       <div
         i-material-symbols-arrow-back-ios-new
         text="#000"
-        @tap="goBack()"
+        @tap="routeBack()"
       ></div>
     </template>
     <div h-10px bg="#EFEFEF"></div>
     <div>
-      <image w="100%" h-400px src="@/static/images/image@2x222.png" />
+      <image w="100%" h-400px src="@/static/images/imageUnlock@2x.png" />
       <div text-center text="24px #333" font-bold mt-20px>远程开锁</div>
       <div text-center text="12px #666" mt-10px>请按上述步骤完成远程开锁</div>
       <button

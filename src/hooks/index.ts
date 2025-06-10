@@ -144,9 +144,3 @@ export function forward(name: string, query: Types.Query = {}): any {
   if (!isReplace) return uni.navigateTo(params);
   uni.redirectTo(params);
 }
-
-export function back(delta: number) {
-  uni.navigateBack({
-    delta
-  });
-}

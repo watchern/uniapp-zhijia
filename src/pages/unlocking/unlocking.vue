@@ -27,7 +27,7 @@ function bluetoothUnlocking() {
           >
             <div flex justify-center items-center>
               <image
-                src="@/static/images/icon_lanyakaisuo@3x.png"
+                src="@/static/images/icon_bluetooth@3x.png"
                 w-20px
                 h-20px
               />
@@ -50,7 +50,7 @@ function bluetoothUnlocking() {
           >
             <div flex justify-center items-center>
               <image
-                src="@/static/images/icon_yuanchengkaisuo@3x.png"
+                src="@/static/images/icon_unlockRemote@3x.png"
                 w-20px
                 h-20px
               />

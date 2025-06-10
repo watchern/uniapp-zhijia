@@ -10,8 +10,11 @@ function remToRpxPreset(options: Options = {}) {
     postprocess: (util) => {
       util.entries.forEach((i) => {
         const value = i[1];
+        // @ts-ignore
         if (value && typeof value === 'string' && remRE.test(value))
-          i[1] = value.replace(remRE, (_, p1) => `${p1 * baseFontSize}rpx`);
+          { // @ts-ignore
+            i[1] = value.replace(remRE, (_, p1) => `${p1 * baseFontSize}rpx`);
+          }
       });
     }
   };

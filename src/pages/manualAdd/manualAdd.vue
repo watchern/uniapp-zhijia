@@ -1,5 +1,6 @@
 <script setup>
 import { apiGetLockTypes, apiAddLockList } from "@/api";
+import { routeBack } from "@/utils/router";
 const result = ref("");
 onLoad((query) => {
   console.log(`query.result`, isJSON(query.result));
@@ -60,7 +61,7 @@ function bindingDoorLock() {
           mask: true,
         });
         uni.$emit("addDoorLockSuccess");
-        uni.navigateBack({ delta: 3 });
+        routeBack(3)
       })
       .catch((err) => {
         console.log(`err====`, err);

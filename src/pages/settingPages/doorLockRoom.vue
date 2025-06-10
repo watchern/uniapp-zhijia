@@ -1,5 +1,6 @@
 <script setup>
 import { apiLockListCtrlUpdateLockList } from "@/api";
+import { routeBack } from "@/utils/router";
 
 const { lockInfo } = useStore("root");
 // const name = rea("");
@@ -23,9 +24,7 @@ function save() {
           mask: true,
         });
         uni.$emit("doorLockName", { listData: 1 });
-        uni.navigateBack({
-          delta: 1,
-        });
+        routeBack()
       })
       .catch((err) => {
         console.log(`err====`, err);

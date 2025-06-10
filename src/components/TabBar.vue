@@ -70,60 +70,60 @@ onMounted(() => {
           <div v-if="index === 0">
             <image
               v-if="current === 0"
-              src="@/static/images/icon_mensuoxuanzhong@2x.png"
+              src="@/static/images/icon_smartLockActive@2x.png"
               :class="[item.hump ? '' : 'tui-tabbar-icon']"
             ></image>
             <image
               v-else
-              src="@/static/images/icon_mensuoweixuanzhong@2x.png"
+              src="@/static/images/icon_smartLockNormal@2x.png"
               :class="[item.hump ? '' : 'tui-tabbar-icon']"
             ></image>
           </div>
           <div v-if="index === 1">
             <image
               v-if="current === 1"
-              src="@/static/images/icon_guanlixuanzhong@2x.png"
+              src="@/static/images/icon_manageActive@2x.png"
               :class="[item.hump ? '' : 'tui-tabbar-icon']"
             ></image>
             <image
               v-else
-              src="@/static/images/icon_guanliweixuanzhong@2x.png"
+              src="@/static/images/icon_manageNormal@2x.png"
               :class="[item.hump ? '' : 'tui-tabbar-icon']"
             ></image>
           </div>
           <div v-if="index === 2">
             <image
               v-if="current === 2"
-              src="@/static/images/icon_xuanchengkaisuo@2x.png"
+              src="@/static/images/icon_unlock@2x.png"
               :class="[item.hump ? '' : 'tui-tabbar-icon']"
             ></image>
             <image
               v-else
-              src="@/static/images/icon_xuanchengkaisuo@2x.png"
+              src="@/static/images/icon_unlock@2x.png"
               :class="[item.hump ? '' : 'tui-tabbar-icon']"
             ></image>
           </div>
           <div v-if="index === 3">
             <image
               v-if="current === 3"
-              src="@/static/images/icon_shezhixuanzhong@2x.png"
+              src="@/static/images/icon_settingActive@2x.png"
               :class="[item.hump ? '' : 'tui-tabbar-icon']"
             ></image>
             <image
               v-else
-              src="@/static/images/icon_shezhiweixuanzhong@2x.png"
+              src="@/static/images/icon_settingNormal@2x.png"
               :class="[item.hump ? '' : 'tui-tabbar-icon']"
             ></image>
           </div>
           <div v-if="index === 4">
             <image
               v-if="current === 4"
-              src="@/static/images/icon_wodexuanzhong@2x.png"
+              src="@/static/images/icon_mineActive@2x.png"
               :class="[item.hump ? '' : 'tui-tabbar-icon']"
             ></image>
             <image
               v-else
-              src="@/static/images/icon_wodeweixuanzhong@2x.png"
+              src="@/static/images/icon_mineNormal@2x.png"
               :class="[item.hump ? '' : 'tui-tabbar-icon']"
             ></image>
           </div>

@@ -1,12 +1,8 @@
 <script setup>
 import dayjs from "dayjs";
 import { apiDoorUserCtrlAddUserListZ } from "@/api";
+import { routeBack } from "@/utils/router";
 const { lockInfo, userInfo } = useStore("root");
-function goBack() {
-  uni.navigateBack({
-    delta: 1,
-  });
-}
 // 添加指纹
 function addFinger() {
   apiDoorUserCtrlAddUserListZ({
@@ -36,12 +32,12 @@ function addFinger() {
       <div
         i-material-symbols-arrow-back-ios-new
         text="#000"
-        @tap="goBack()"
+        @tap="routeBack()"
       ></div>
     </template>
     <div h-10px bg="#EFEFEF"></div>
     <div>
-      <image w="100%" h-400px src="@/static/images/openU@2x.png" />
+      <image w="100%" h-400px src="@/static/images/imageFinger@2x.png" />
       <div text-center text="24px #333" font-bold mt-20px>添加指纹</div>
       <div text-center text="12px #666" mt-10px>请按上述步骤完成录入指纹</div>
       <button

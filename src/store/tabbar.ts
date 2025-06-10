@@ -8,8 +8,8 @@ export default defineStore({
         {
           pagePath: '/pages/index/index',
           text: '门锁',
-          iconPath: '/static/images/icon_mensuoweixuanzhong@2x.png',
-          selectedIconPath: '/static/images/icon_mensuoxuanzhong@2x.png',
+          iconPath: '/static/images/icon_smartLockNormal@2x.png',
+          selectedIconPath: '/static/images/icon_smartLockActive@2x.png',
           num: 0,
           isDot: false,
           verify: true
@@ -17,8 +17,8 @@ export default defineStore({
         {
           pagePath: '/pages/administration/administration',
           text: '管理',
-          iconPath: '/static/images/icon_guanliweixuanzhong@2x.png',
-          selectedIconPath: '/static/images/icon_guanlixuanzhong@2x.png',
+          iconPath: '/static/images/icon_manageNormal@2x.png',
+          selectedIconPath: '/static/images/icon_manageActive@2x.png',
           num: 0,
           isDot: false,
           verify: true
@@ -26,16 +26,16 @@ export default defineStore({
         {
           pagePath: '/pages/unlocking/unlocking',
           text: 'extend',
-          iconPath: '/static/images/icon_xuanchengkaisuo@2x.png',
+          iconPath: '/static/images/icon_unlock@2x.png',
           hump: true,
           verify: true,
-          selectedIconPath: '/static/images/icon_xuanchengkaisuo@2x.png'
+          selectedIconPath: '/static/images/icon_unlock@2x.png'
         },
         {
           pagePath: '/pages/settings/settings',
           text: '设置',
-          iconPath: '/static/images/icon_shezhiweixuanzhong@2x.png',
-          selectedIconPath: '/static/images/icon_shezhixuanzhong@2x.png',
+          iconPath: '/static/images/icon_settingNormal@2x.png',
+          selectedIconPath: '/static/images/icon_settingActive@2x.png',
           num: 0,
           isDot: true,
           verify: true
@@ -43,8 +43,8 @@ export default defineStore({
         {
           pagePath: '/pages/profile/profile',
           text: '我的',
-          iconPath: '/static/images/icon_wodeweixuanzhong@2x.png',
-          selectedIconPath: '/static/images/icon_wodexuanzhong@2x.png',
+          iconPath: '/static/images/icon_mineNormal@2x.png',
+          selectedIconPath: '/static/images/icon_mineActive@2x.png',
           num: 0,
           isDot: true,
           verify: true

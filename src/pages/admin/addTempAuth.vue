@@ -4,6 +4,7 @@ import dayjs from "dayjs";
 import { nativeContact } from "@/utils/nativeContact";
 // #endif
 import { isWx, isApp } from "@/hooks";
+import { routeBack } from "@/utils/router";
 const { lockInfo } = useStore("root");
 const result = ref("");
 onLoad((query) => {
@@ -136,9 +137,7 @@ const submit = () => {
             icon: "success",
           });
           uni.$emit("updateMemberList", { listData: 1 });
-          uni.navigateBack({
-            delta: 1,
-          });
+          routeBack()
         })
         .catch((err) => {
           console.log(`err====`, err);

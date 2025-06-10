@@ -94,7 +94,7 @@ function baseRequest(
         }
       },
       fail: (res) => {
-        console.log(`res`, res)
+        console.log(`res-fall`, res)
         reject(res);
         rejectMessage({
           errno: -1,
