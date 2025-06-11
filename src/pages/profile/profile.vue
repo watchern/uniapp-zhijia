@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { apiDoorUserCtrlDelMySelf } from "@/api";
 const visible1 = ref(false);
+const userToken = uni.getStorageSync('token');
 
 const { setCurrent } = useStore("tabbar");
 function goPage(params) {
@@ -40,7 +41,9 @@ onMounted(() => {
   <LayoutTabbar title="我的" :full="true">
     <div bg="#efefef" h-1px></div>
     <nut-cell-group>
-      <nut-cell is-link @tap="goPage('changePassword')">
+      <nut-cell is-link
+                v-if="userToken"
+                @tap="goPage('changePassword')">
         <template #title>
           <div text="#333">修改密码</div>
         </template>
@@ -55,7 +58,8 @@ onMounted(() => {
           <div text="#333">关于我们</div>
         </template>
       </nut-cell>
-      <nut-cell>
+      <nut-cell
+        v-if="userToken">
         <template #title>
           <div text="#333" @tap="visible1 = true">注销账户</div>
         </template>
@@ -70,8 +74,15 @@ onMounted(() => {
       @ok="onOk"
     />
     <div pt-40px px-20px>
-      <nut-button style="width: 100%" type="primary" @tap="logout">
+      <nut-button style="width: 100%"
+                  v-if="userToken"
+                  type="primary" @tap="logout">
         退出登录
+      </nut-button>
+      <nut-button style="width: 100%"
+                  v-if="!userToken"
+                  type="primary" @tap="logout">
+        登录
       </nut-button>
     </div>
   </LayoutTabbar>
