@@ -3,8 +3,9 @@ import { apiDoorUserCtrlDelMySelf } from "@/api";
 import systemPush from '@/hooks/systemPush'
 
 const visible1 = ref(false);
-const userToken = uni.getStorageSync('token');
-console.log(userToken)
+const userToken = ref();
+userToken.value = uni.getStorageSync('token');
+console.log(userToken.value)
 
 const {setCurrent} = useStore("tabbar");
 
@@ -51,7 +52,8 @@ function pushNotice() {
 function logout() {
   setCurrent(0);
   uni.clearStorage();
-  uni.redirectTo({url: "/pages/loginOrSignup/loginOrSignup"});
+  userToken.value = ''
+  uni.navigateTo({url: "/pages/loginOrSignup/loginOrSignup"});
 }
 
 onMounted(() => {

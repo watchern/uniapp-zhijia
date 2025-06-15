@@ -10,7 +10,7 @@
   "package": "io.jia.packageA",
   "packagename": "io.jia.packageB",
   "packageConfig": {
-    "name": "io.jia.packageC",
+    "name": "io.jia.packageC"
   },
   "transformPx" : false,
   /* 5+App特有相关 */
