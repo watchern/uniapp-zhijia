@@ -35,6 +35,23 @@ jobs:
       - name: Build Android APK
         run: yarn run build:app-android
 
+      - name: 执行脚本2
+        run: |
+           pwd
+           ls
+           cd ./
+           ls
+           cd ./unpackage/
+           ls
+
+#      # 步骤二的名称：将编译后的结果上传
+#      - name: upload artifacts
+#        # 使用预制action：上传文件，可以将执行路径打包成zip上传
+#        uses: actions/upload-artifact@v4
+#        with:
+#          name: app-release
+#          path: example/docker/app-release.apk
+
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
