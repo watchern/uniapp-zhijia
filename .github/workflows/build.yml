@@ -37,10 +37,15 @@ jobs:
 
       - name: 执行脚本1
         run: |
-           pwd
-           ls
-           cd ./
-           ls
+          pwd
+          ls
+          cd ./
+          ls
+
+      - name: 执行脚本2
+        run: |
+          cd ./dist
+          ls
 
       - name: 执行脚本2
         run: |
