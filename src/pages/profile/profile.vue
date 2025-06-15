@@ -1,19 +1,26 @@
 <script lang="ts" setup>
 import { apiDoorUserCtrlDelMySelf } from "@/api";
+import systemPush from '@/hooks/systemPush'
+
 const visible1 = ref(false);
 const userToken = uni.getStorageSync('token');
+console.log(userToken)
 
-const { setCurrent } = useStore("tabbar");
+const {setCurrent} = useStore("tabbar");
+
 function goPage(params) {
-  uni.navigateTo({ url: `/pages/profilePages/${params}` });
+  uni.navigateTo({url: `/pages/profilePages/${params}`});
 }
+
 function list() {
   console.log(`222222`, 222222);
 }
+
 function onCancel() {
   console.log("取消");
   visible1.value = false;
 }
+
 function onOk() {
   console.log("确定");
   apiDoorUserCtrlDelMySelf()
@@ -25,11 +32,28 @@ function onOk() {
     });
 }
 
+const toastRef = ref();
+
+function pushNotice() {
+  // #ifdef APP
+  systemPush.create("点击查看消息内容>>", {url: "/pages/forgotPassword/forgotPassword"}, {
+    delay: 0,
+    title: "您有1条新的消息",
+  }, true);
+  // #endif
+  // #ifndef APP
+  toastRef.value?.showToast.fail("仅APP支持此操作", {
+    duration: 800,
+  });
+  // #endif
+}
+
 function logout() {
   setCurrent(0);
   uni.clearStorage();
-  uni.redirectTo({ url: "/pages/loginOrSignup/loginOrSignup" });
+  uni.redirectTo({url: "/pages/loginOrSignup/loginOrSignup"});
 }
+
 onMounted(() => {
   uni.$on("doorLockName", function () {
     list();
@@ -58,6 +82,11 @@ onMounted(() => {
           <div text="#333">关于我们</div>
         </template>
       </nut-cell>
+      <nut-cell is-link @tap="pushNotice()">
+        <template #title>
+          <div text="#333">增加一条推送</div>
+        </template>
+      </nut-cell>
       <nut-cell
         v-if="userToken">
         <template #title>
@@ -77,14 +106,15 @@ onMounted(() => {
       <nut-button style="width: 100%"
                   v-if="userToken"
                   type="primary" @tap="logout">
-        退出登录
+        退出登录-{{ userToken }}-
       </nut-button>
       <nut-button style="width: 100%"
                   v-if="!userToken"
                   type="primary" @tap="logout">
-        登录
+        登录-{{ userToken }}-
       </nut-button>
     </div>
+    <nut-toast ref="toastRef"/>
   </LayoutTabbar>
 </template>
 

@@ -10,6 +10,7 @@ declare module '*.vue' {
 
 declare module 'vue' {
   import { ToRef } from '@vue/runtime-core'
+  // @ts-ignore
   export type AutoToRefs<T> = {
     [K in keyof T]: T[K] extends Function ? T[K] : ToRef<T[K]>
   }

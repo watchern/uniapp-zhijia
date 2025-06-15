@@ -134,6 +134,7 @@ function logout() {
   setCurrent(0);
   uni.clearStorage();
   const userToken = uni.getStorageSync('token');
+  console.log(userToken)
   if (!userToken) {
     uni.redirectTo({ url: '/pages/loginOrSignup/loginOrSignup' });
   }

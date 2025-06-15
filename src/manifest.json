@@ -21,6 +21,7 @@
           "Barcode" : {},
           "Contact" : {},
           "Camera" : {},
+          "push" : {},
           "Contacts" : {}
       },
       /* 应用发布信息 */

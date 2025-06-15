@@ -13,8 +13,8 @@ import fs from 'node:fs';
 import env from './src/config/env';
 import { viteMockServe } from 'vite-plugin-mock'
 
-const process_env = process.env
-console.log('process.env', process_env)
+// const process_env = process.env
+// console.log('process.env', process_env)
 
 import path from 'node:path';
 

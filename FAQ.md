@@ -1,5 +1,14 @@
 # 常见问题
 
+## CI流水线执行build:app-android 打包后的文件路径
+安卓路径
+
+./unpackage/*.apk
+
+苹果路径
+
+
+
 ## vetur 提示组件引入报错
 
 **原因：**
@@ -20,6 +29,9 @@ vue3 配套的 vscode 插件为 volar,vetur 会存在冲突
 
 按照 `commitlint.config.js` 文件中定义的规则进行`git commit`操作
 示例:`git commit -m 'feat: xxxxxx'`
+
+或者使用
+执行`git cz -a`命令按照提示选择和输入
 
 ## 如何根据快速定义 ts 接口类型
 

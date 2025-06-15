@@ -20,3 +20,4 @@ dist
 *.sln
 *.sw?
 /.eslintrc-auto-import.json
+/.eslintrc-auto-import-types.json
