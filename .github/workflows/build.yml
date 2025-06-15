@@ -49,6 +49,16 @@ jobs:
 
       - name: 执行脚本2
         run: |
+          cd ./dist/build/
+          ls
+
+      - name: 执行脚本2
+        run: |
+          cd ./dist/build/app/
+          ls
+
+      - name: 执行脚本2
+        run: |
            cd ./unpackage/
            ls
 
