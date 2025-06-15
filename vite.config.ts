@@ -19,7 +19,7 @@ import { viteMockServe } from 'vite-plugin-mock'
 import path from 'node:path';
 
 const ENV_DIR = path.join(__dirname, "envs");
-console.log(ENV_DIR)
+console.log('ENV_DIR',ENV_DIR)
 
 // https://vitejs.dev/config/
 export default defineConfig(({command, mode}) => {

@@ -5,7 +5,7 @@ const BASE_URL=''
 // const { BASE_URL, ...meta_env} = import.meta.env
 // console.log('import.meta.env', BASE_URL, meta_env)
 
-console.log(path)
+// console.log(path)
 
 
 const httpProtocol = BASE_URL ? 'http' : 'https'
