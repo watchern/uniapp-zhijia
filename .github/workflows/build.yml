@@ -35,12 +35,15 @@ jobs:
       - name: Build Android APK
         run: yarn run build:app-android
 
-      - name: 执行脚本2
+      - name: 执行脚本1
         run: |
            pwd
            ls
            cd ./
            ls
+
+      - name: 执行脚本2
+        run: |
            cd ./unpackage/
            ls
 
@@ -56,4 +59,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: UniApp-APK
-          path: platforms/android/app/build/outputs/apk/release/  # 根据实际 APK 输出路径修改
+          path: ./unpackage/*.apk  # 根据实际 APK 输出路径修改
