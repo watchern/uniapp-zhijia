@@ -35,27 +35,26 @@ jobs:
       - name: Build Android APK
         run: yarn run build:app-android
 
-      - name: 执行脚本1
+      - name: 执行脚本2
         run: |
-          pwd
+          cd ./unpackage/
           ls
-          cd ./
-          ls
+
+      - name: Build Android APK
+        run: yarn run build:app-android
 
       - name: 执行脚本2
         run: |
-          cd ./dist/build/
+          cd ./unpackage/
           ls
+
+      - name: Build Android APK
+        run: yarn run build:app-android
 
       - name: 执行脚本2
         run: |
-          cd ./dist/build/app/
+          cd ./unpackage/
           ls
-
-      - name: 执行脚本2
-        run: |
-           cd ./unpackage/
-           ls
 
 #      # 步骤二的名称：将编译后的结果上传
 #      - name: upload artifacts
