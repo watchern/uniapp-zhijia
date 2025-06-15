@@ -44,11 +44,6 @@ jobs:
 
       - name: 执行脚本2
         run: |
-          cd ./dist
-          ls
-
-      - name: 执行脚本2
-        run: |
           cd ./dist/build/
           ls
 
