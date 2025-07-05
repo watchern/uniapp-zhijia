@@ -3,14 +3,19 @@ import { apiDoorUserCtrlDelMySelf } from "@/api";
 import systemPush from '@/hooks/systemPush'
 
 const visible1 = ref(false);
-const userToken = ref();
-userToken.value = uni.getStorageSync('token');
-console.log(userToken.value)
+const userInfo = ref({token: ''})
+userInfo.value.token = uni.getStorageSync('token');
 
 const {setCurrent} = useStore("tabbar");
 
 function goPage(params) {
   uni.navigateTo({url: `/pages/profilePages/${params}`});
+}
+
+function getAge() {
+  window.APP?.invokeClientMethod('getUser', {name: '王者荣耀', age: 29}, (data) => {
+    userInfo.value.age = data.age
+  });
 }
 
 function list() {
@@ -52,7 +57,7 @@ function pushNotice() {
 function logout() {
   setCurrent(0);
   uni.clearStorage();
-  userToken.value = ''
+  userInfo.value.token = ''
   uni.navigateTo({url: "/pages/loginOrSignup/loginOrSignup"});
 }
 
@@ -68,7 +73,7 @@ onMounted(() => {
     <div bg="#efefef" h-1px></div>
     <nut-cell-group>
       <nut-cell is-link
-                v-if="userToken"
+                v-if="userInfo.token"
                 @tap="goPage('changePassword')">
         <template #title>
           <div text="#333">修改密码</div>
@@ -84,13 +89,18 @@ onMounted(() => {
           <div text="#333">关于我们</div>
         </template>
       </nut-cell>
+      <nut-cell is-link @tap="getAge()">
+        <template #title>
+          <div text="#333">关于我们</div>
+        </template>
+      </nut-cell>
       <nut-cell is-link @tap="pushNotice()">
         <template #title>
           <div text="#333">增加一条推送</div>
         </template>
       </nut-cell>
       <nut-cell
-        v-if="userToken">
+        v-if="userInfo.token">
         <template #title>
           <div text="#333" @tap="visible1 = true">注销账户</div>
         </template>
@@ -106,14 +116,14 @@ onMounted(() => {
     />
     <div pt-40px px-20px>
       <nut-button style="width: 100%"
-                  v-if="userToken"
+                  v-if="userInfo.token"
                   type="primary" @tap="logout">
-        退出登录-{{ userToken }}-
+        退出登录-{{ userInfo.token }}-
       </nut-button>
       <nut-button style="width: 100%"
-                  v-if="!userToken"
+                  v-if="!userInfo.token"
                   type="primary" @tap="logout">
-        登录-{{ userToken }}-
+        登录-{{ userInfo.token }}-
       </nut-button>
     </div>
     <nut-toast ref="toastRef"/>
